@@ -7,7 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "server": "nodemon server/server.js",
     "client": "cd client && npm start",
-    "dev":"concurrently --kill-others-on-fail \"npm run server\" \"npm run client\""
+    "dev":"concurrently --kill-others-on-fail \"npm run server\" \"npm run client\"",
+    "heroku-postbuild":"cd client && npm install --only=dev && npm install && npm run bulid"
   },
   "author": "michal farada",
   "license": "ISC",
@@ -18,5 +19,9 @@
     "express": "^4.17.1",
     "mongoose": "^5.13.5",
     "nodemon": "^2.0.12"
+  },
+  "engines": {
+    "node":"14.x"
   }
+
 }
