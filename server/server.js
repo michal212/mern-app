@@ -1,11 +1,21 @@
-const express = require("express");
-const app = express();
+const dotenv = require("dotenv");
+dotenv.config();
 const cors = require("cors");
-app.use(cors());
-app.get("/", (req, res) => {
-  res.send("hello from srerver");
-});
+const express = require("express");
+const studentRouter = require("./Routes/StudentRoute");
 
-app.listen(8080, (req, res) => {
+const app = express();
+const path = require("path");
+app.use(cors());
+
+app.listen(process.env.PORT || 8080, (req, res) => {
   console.log("port running on port 8080 ");
 });
+app.use("/api/student", studentRouter);
+
+if (process.env.NODE_ENV === 'production') {
+    app.use(express.static(path.join(__dirname, '../client/build')));
+    app.get('*', (req, res)=>{
+        res.sendFile(path.join(__dirname, '../client/build', 'index.html'));
+    });
+  }
