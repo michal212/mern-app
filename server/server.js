@@ -11,7 +11,7 @@ app.use(cors());
 //   res.send("hello from srerver");
 // });
 
-app.listen(8080, (req, res) => {
+app.listen(process.env.PORT || 8080, (req, res) => {
   console.log("port running on port 8080 ");
 });
 
