@@ -3,9 +3,9 @@ const app = express();
 const cors = require("cors");
 const path =require('path')
 app.use(cors());
-app.get("/", (req, res) => {
-  res.send("hello from srerver");
-});
+// app.get("/", (req, res) => {
+//   res.send("hello from srerver");
+// });
 
 app.listen(8080, (req, res) => {
   console.log("port running on port 8080 ");
