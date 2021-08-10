@@ -1,5 +1,4 @@
-const app =require('app')
-const Router = app.Router()
+const Router =require('express').Router()
 
 
 Router.get("/",(req,res)=>{
