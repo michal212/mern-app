@@ -9,13 +9,13 @@ const app = express();
 app.use(cors());
 
 app.listen(process.env.PORT || 8080, (req, res) => {
-    console.log("port running on port 8080 ");
+  console.log("port running on port 8080 ");
 });
 
 app.use("/api/student", studentRouter);
-if (process.env.NODE_ENV === 'production') {
-  app.use(express.static(path.join(__dirname, '../client/build')));
-  app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, '../client/build', 'index.html'));
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static(path.join(__dirname, "../client/build")));
+  app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "../client/build", "index.html"));
   });
 }
